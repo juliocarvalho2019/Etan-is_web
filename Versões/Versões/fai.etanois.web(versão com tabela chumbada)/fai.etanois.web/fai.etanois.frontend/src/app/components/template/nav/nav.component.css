@@ -1,0 +1,47 @@
+.sidenav {
+    /* background-color: #11205E; */
+    /* display: block; */
+    /* width: 96px; */
+    /* height: 691.2px; */
+    /* left: 0; */
+    top: 38px;
+    left: 55px;
+    width: 96px;
+    height: 691px;
+    background: #11205E;
+    border-radius: 20px;
+    /* opacity: 1; */
+    /* padding-top: 0%; */
+}
+
+/* .content {
+    padding: 16px;
+    background-color: #FFF;
+} */
+
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: -10px;
+    left: 83px;
+    width: 41px;
+    height: 48px;
+    background: transparent 0% 0% no-repeat padding-box;
+    opacity: 1;
+
+}
+
+.icons {
+    display: flex;
+    display: -webkit-flex;
+    /* Garante compatibilidade com navegador Safari. */
+    justify-content: center;
+    align-items: center;
+    padding-top: 80px
+}
+
+.content {
+    padding: 16px;
+    background-color: #FFF;
+}

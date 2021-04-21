@@ -1,0 +1,151 @@
+<body>
+   <link rel="stylesheet" href="https://use.typekit.net/dzj6knh.css">
+   <div class="manage-container">
+       <section class="manage-info-section">
+           <h1 class="manage-h1">Olá, gerente!
+               <br>
+               É uma honra tê-lo aqui!
+               <br>
+               Vamos começar com o
+               <br>
+               seu cadastro.</h1>
+           <br>
+           <p class="manage-h2">Credencie seu posto de combustível e tenha controle
+               <br>
+               sobre seu negócio. O Etanóis possui diversos
+               <br>
+               recursos que facilitam o seu trabalho!
+           </p>
+           <br>
+           <p class="manage-p-bold">Já é cadastrado?</p>
+           <a class="attendant-link" href="attendant/area/login" > Vá para a Área do Frentista</a>
+       </section>
+       <section class="manage-input-section">
+        <form [formGroup]="formularioDeUsuario" (ngSubmit)="enviarDados()">
+           <div class="input-item-div">
+               <label for="name">Qual o seu nome?</label>
+               <input type="text" name="name" placeholder="Digite seu nome"
+                [(ngModel)]="user.name" name="name" formControlName="name" required>
+               
+                <div class="input-item" *ngIf="!name.pristine && name.errors">
+                  <div class="alert alert-danger" role="alert" *ngIf="name.errors.required">
+                    Nome é obrigatório.
+                  </div>
+
+                  <div class="alert alert-danger" role="alert" *ngIf="name.errors.minlength">
+                    Nome deve ter no mínimo 3 caracters.
+                  </div>
+
+                  <div class="alert alert-danger" role="alert" *ngIf="name.errors.maxlength">
+                    Nome deve ter no máximo 50 caracters.
+                  </div>
+                </div>
+                
+           </div>
+            <div class="input-item-div">
+               <label for="username">Qual o seu usuário?</label>
+               <input type="text" name="username" placeholder="Digite seu usuário"
+                [(ngModel)]="user.username" name="username" formControlName="username" required>
+
+                <div class="input-item" *ngIf="!username.pristine && username.errors">
+                    <div class="alert alert-danger" role="alert" *ngIf="username.errors.required">
+                      Apelido é obrigatório.
+                    </div>
+
+                    <div class="alert alert-danger" role="alert" *ngIf="username.errors.minlength">
+                      Apelido deve ter no mínimo 3 caracters.
+                    </div>
+
+                    <div class="alert alert-danger" role="alert" *ngIf="username.errors.maxlength">
+                      Apelido deve ter no máximo 30 caracters.
+                    </div>
+                </div>
+                <div class="alert alert-danger" role="alert" *ngIf="userNameError">
+                  {{ userNameError }}
+                </div>
+            </div>
+           <div class="input-item-div">
+               <label for="email">Qual o seu melhor e-mail?</label>
+               <input type="text" name="email" placeholder="Digite seu e-mail"
+               [(ngModel)]="user.email" name="email" formControlName="email" required>
+
+               <div class="input-item" *ngIf="!email.pristine && email.errors">
+                  <div class="alert alert-danger" role="alert" *ngIf="email.errors.required">
+                    E-mail é obrigatório.
+                  </div>
+                  <div class="alert alert-danger" role="alert" *ngIf="email.errors.email">
+                    Digite um e-mail válido.
+                  </div>
+              </div>
+              <div class="alert alert-danger" role="alert" *ngIf="emailError">
+                {{ emailError }}
+              </div>
+           </div>
+           <div class="input-item-div">
+            <label for="cep">Digite seu Cep</label>
+            <input (keyup)="cepMask()"  [mask]="maskCep" type="cep" name="cep" placeholder="Digite seu Cep"
+            [(ngModel)]="user.cep" formControlName="cep" required>
+
+            <div class="input-item" *ngIf="!cep.pristine && cep.errors">
+             <div class="alert alert-danger" role="alert" *ngIf="cep.errors.required">
+               Cep é obrigatório.
+             </div>
+             <div class="alert alert-danger" role="alert" *ngIf="cep.errors.minlength">
+               Cep deve ter no mínimo 8 caracters.
+             </div>
+             <div class="alert alert-danger" role="alert" *ngIf="cep.errors.maxlength">
+               Cep deve ter no máximo 8 caracters.
+             </div>
+         </div>
+        </div>
+        <div class="input-item-div">
+          <label for="phone_number">Qual telefone?</label>
+          <input (keyup)="phoneNumberMask()" type="text" name="phone_number" placeholder="Digite o telefone"
+          [(ngModel)]="user.phone_number" formControlName="phone_number"  [mask]="maskPhone">
+     
+          <div class="input-item" *ngIf="!phone_number.pristine && phone_number.errors">
+           
+             <div class="alert alert-danger" role="alert" *ngIf="phone_number.errors.required">
+               Telefone é obrigatório.
+             </div>
+
+             <div class="alert alert-danger" role="alert" *ngIf="phone_number.errors.minlength">
+               Telefone deve ter no mínimo 11 caracters.
+             </div>
+          
+             <div class="alert alert-danger" role="alert" *ngIf="phone_number.errors.maxlength">
+               Telefone deve ter no máximo 11 caracters.
+             </div>
+         
+           </div>
+       </div>
+       <div class="input-item-div">
+        <label for="password">Digite sua senha de acesso</label>
+        <input type="password" name="password" placeholder="Digite sua senha"
+        [(ngModel)]="user.password" formControlName="password" required>
+
+        <div class="input-item" *ngIf="!password.pristine && password.errors">
+         <div class="alert alert-danger" role="alert" *ngIf="password.errors.required">
+           Senha é obrigatória.
+         </div>
+         <div class="alert alert-danger" role="alert" *ngIf="password.errors.minlength">
+           Senha deve ter no mínimo 6 caracters.
+         </div>
+         <div class="alert alert-danger" role="alert" *ngIf="password.errors.maxlength">
+           Senha deve ter no máximo 255 caracters.
+         </div>
+     </div>
+
+    </div>
+
+           <div class="manage-buttons-div">
+               <button type="button" class="btn1" (click)="cancel()">
+                   < Voltar</button>
+                       <button [disabled]="!formularioDeUsuario.valid" type="button" class="btn2" (click)="createUser()">Seguir ></button>
+           </div>
+           <!-- <div>{{ formularioDeUsuario.value | json}}</div>
+           <div>{{ formularioDeUsuario.valid | json }}</div> -->
+         </form>
+       </section>
+   </div>
+</body>

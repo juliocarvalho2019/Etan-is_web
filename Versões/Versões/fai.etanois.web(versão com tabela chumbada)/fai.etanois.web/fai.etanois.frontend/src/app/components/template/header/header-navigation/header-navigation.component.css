@@ -1,0 +1,17 @@
+.nav-item {
+    font-family: bagatela, serif;
+    color: #11205e66;
+    font-size: 20px;
+    margin: 0 32px;
+}
+
+button.nav-item {
+    color: #fafafa;
+    font-weight: bold;
+    margin-right: 0;
+    background: #ff951c;
+    border-radius: 10px;
+    padding: 8px;
+    border: none;
+    outline: none;
+}

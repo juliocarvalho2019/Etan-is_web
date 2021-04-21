@@ -1,0 +1,34 @@
+<!--<app-post-read></app-post-read>-->
+<body>
+    <link rel="stylesheet" href="https://use.typekit.net/dzj6knh.css">
+    <div class="manage-container">
+        <section class="manage-info-section">
+            <h1 class="manage-h1">Com o Etanóis é possível
+                <br>
+                Gerenciar mais de um
+                <br>
+                posto de combustível.
+                <br>
+                Selecione um deles!</h1>
+            <br>
+            <p class="manage-h2">Caso você tenha uma rede de postos, escolha um deles
+                <br>
+                ao lado para continuar.
+                <br>
+               Você também pode cadastrar mais!
+            </p>
+            <br>
+        </section>
+        <section class="manage-label-section">
+            
+            <div class="label-item-div">
+            <app-fuel-station-read (click)="navigateToFuelStation()"></app-fuel-station-read>
+            </div>
+            <div class="manage-buttons-div">
+                        <button type="button" class="btn2" (click)="navigateToFuelStationCreate()">Cadastrar um novo posto</button>     
+            </div>
+            <br>
+            <br>
+        </section>
+    </div>
+</body>

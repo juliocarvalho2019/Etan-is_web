@@ -1,0 +1,441 @@
+<main *ngIf="currentStep !== 4 && currentStep !== 6">
+  <!-- Inicio lado esquerdo -->
+  <section *ngIf="currentStep === 0" class="text-section">
+    <h1>Olá! <br>Coloque suas credenciais<br> ao lado e acompanhe seu <br>posto de combustível.</h1>
+    <h2>Gerencie seu posto de combustível e veja seus resultados com poucos cliques!</h2>
+    <span>Ainda não é cadastrado? <a routerLink="/registration">Clique aqui!</a></span>
+  </section>
+
+  <section *ngIf="currentStep === 1 || currentStep === 2" class="text-section">
+    <h1>Com o Etanóis é possível<br>gerenciar mais de um <br>posto de combustível. <br>Selecione um deles!</h1>
+    <h2>Caso você tenha uma rede de postos, escolha um deles ao lado para continuar. Você também pode cadastrar mais!
+    </h2>
+  </section>
+
+  <section *ngIf="currentStep === 3" class="text-section">
+    <h1>Certo, {{user.name}} <br>em poucos minutos você <br>irá ter acesso a todas as <br>ferramentas do Etanóis.</h1>
+    <h2>Insira os dados do seu posto nos campos ao lado e o restante o Etanóis fará por você.</h2>
+  </section>
+  <!-- Final lado esquerdo -->
+
+  <!-- Inicio login do usuário -->
+  <section *ngIf="currentStep === 0" class="text-section right">
+    <form id="login-form" class="form-container" [formGroup]="loginGroup" (ngSubmit)="submitLogin($event)">
+
+      <label for="username" class="form-label">Digite seu apelido</label>
+      <mat-form-field appearance="outline">
+        <input id="username" class="form-input" type="text" formControlName="username" matInput>
+        <mat-error
+          *ngIf="loginUsername.invalid && (loginUsername.dirty || loginUsername.touched) && loginUsername.errors.required">
+          Apelido é <strong>obrigatório</strong>
+        </mat-error>
+        <mat-error
+          *ngIf="loginUsername.invalid && (loginUsername.dirty || loginUsername.touched) && loginUsername.errors.minlength">
+          Apelido precisa ter no mínimo <strong>3 caracteres</strong>
+        </mat-error>
+        <mat-error
+          *ngIf="loginUsername.invalid && (loginUsername.dirty || loginUsername.touched) && loginUsername.errors.maxlength">
+          Apelido pode ter no máximo <strong>30 caracteres</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <label for="password" class="form-label">Digite sua senha de acesso</label>
+      <mat-form-field appearance="outline">
+        <input id="password" class="form-input" type="password" formControlName="password" matInput>
+        <mat-error
+          *ngIf="loginPassword.invalid && (loginPassword.dirty || loginPassword.touched) && loginPassword.errors.required">
+          Senha é <strong>obrigatório</strong>
+        </mat-error>
+        <mat-error
+          *ngIf="loginPassword.invalid && (loginPassword.dirty || loginPassword.touched) && loginPassword.errors.minlength">
+          Senha precisa ter no mínimo <strong>3 caracteres</strong>
+        </mat-error>
+        <mat-error
+          *ngIf="loginPassword.invalid && (loginPassword.dirty || loginPassword.touched) && loginPassword.errors.maxlength">
+          Senha pode ter no máximo <strong>30 caracteres</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <a (click)="recoverPasswordInit()">Esqueci a senha</a>
+
+      <mat-card class="error-card">{{getErrorMessage()}}</mat-card>
+    </form>
+    <div class="login-buttons">
+      <button id="back-button" mat-flat-button routerLink="/" class="btn-back">
+        <div>
+          ← Voltar
+        </div>
+      </button>
+      <button form="login-form" id="login-button" type="submit" mat-flat-button>
+        <div>
+          Seguir →
+        </div>
+      </button>
+    </div>
+  </section>
+  <!-- Final login do usuário -->
+
+  <!-- Inicio recuperar senha -->
+  <section *ngIf="currentStep === 5" class="text-section">
+    <h1>Enviaremos um link para recuperação da senha.</h1>
+    <form id="recover-form" class="form-container" [formGroup]="passwordRecoverGroup"
+      (ngSubmit)="submitRecoverPassword($event)">
+
+      <label for="email" class="form-label">Digite seu email</label>
+      <mat-form-field appearance="outline">
+        <input id="email" class="form-input" type="text" formControlName="email" matInput>
+        <mat-error
+          *ngIf="recoverEmail.invalid && (recoverEmail.dirty || recoverEmail.touched) && recoverEmail.errors.required">
+          Email é <strong>obrigatório</strong>
+        </mat-error>
+        <mat-error
+          *ngIf="recoverEmail.invalid && (recoverEmail.dirty || recoverEmail.touched) && recoverEmail.errors.email">
+          Digite um email <strong>válido</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-card class="error-card">{{getErrorMessage()}}</mat-card>
+    </form>
+    <div class="login-buttons">
+      <button id="back-button" mat-flat-button class="btn-back" (click)="back()">
+        <div>
+          ← Voltar
+        </div>
+      </button>
+      <button form="recover-form" id="login-button" type="submit" mat-flat-button>
+        <div>
+          Enviar →
+        </div>
+      </button>
+    </div>
+  </section>
+  <!-- Final recuperar senha -->
+
+  <!-- Inicio escolher posto -->
+  <section *ngIf="currentStep === 1 || currentStep === 2" class="text-section">
+
+    <div *ngIf="gasStations.length === 0" class="gas-station-div">
+      <span>Ainda não há postos vinculados a você</span>
+    </div>
+
+    <!-- Inicio todos os postos -->
+    <div *ngIf="!currentGasStation">
+      <mat-card class="gas-station-div" matRipple *ngFor="let gasStation of gasStations"
+        (click)="accessCode(gasStation)">
+        <div matRipple>
+          <span class="title">{{gasStation.name}} {{gasStation.flag_of_fuel_station && "|" }}
+            {{gasStation.flag_of_fuel_station}}</span>
+          <br>
+          <span class="address">
+            {{gasStation.street}}, {{gasStation.street_number}} -
+            {{gasStation.neighborhood}}
+          </span>
+          <br>
+          <span class="address">
+            {{gasStation.city}} - {{gasStation.state}}
+          </span>
+        </div>
+      </mat-card>
+    </div>
+    <!-- Final todos os postos -->
+
+    <!-- Inicio do posto selecionado -->
+    <div *ngIf="currentGasStation">
+      <mat-card class="gas-station-div">
+        <div matRipple matRippleColor="white">
+          <span class="title">{{currentGasStation.name}} {{currentGasStation.flag_of_fuel_station && "|" }}
+            {{currentGasStation.flag_of_fuel_station}}</span>
+          <br>
+          <span class="address">
+            {{currentGasStation.street}}, {{currentGasStation.street_number}} -
+            {{currentGasStation.neighborhood}}
+          </span>
+          <br>
+          <span class="address">
+            {{currentGasStation.city}} - {{currentGasStation.state}}
+          </span>
+          <td class="icons-btn">
+            <button (click)="editFuelStation()"  class="edit-btn">Editar</button>
+            <button (click)="deleteFuelStation()" class="remove-btn">Excluir</button>
+          </td>
+        </div>
+      </mat-card>
+    </div>
+    <!-- Final do posto selecionado -->
+
+     <!-- <form id="gas-station-login" *ngIf="currentStep === 2" class="form-container" [formGroup]="gasStationLoginGroup"
+      (ngSubmit)="submitGasLogin($event, gasStation)">  -->
+     <form id="gas-station-login" *ngIf="currentStep === 2" class="form-container" 
+      (ngSubmit)="submitGasLogin($event, gasStation)"> 
+
+     <!-- <label for="accessCodeField1" class="form-label">Insira o código de acesso</label> -->
+      <!-- <table>
+        <tr>
+          <td>
+            <mat-form-field appearance="outline">
+              <input type="password" formControlName="accessCodeField1" matInput>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field appearance="outline">
+              <input type="password" formControlName="accessCodeField2" matInput>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field appearance="outline">
+              <input type="password" formControlName="accessCodeField3" matInput>
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+
+      <mat-card class="error-card" *ngIf="gasStationLoginGroup.invalid">{{getErrorMessage()}}</mat-card> --> 
+    </form> 
+    <div *ngIf="currentStep === 2" class="login-buttons">
+      <button id="back-button" mat-flat-button (click)="back()">
+        <div>
+          ← Voltar
+        </div>
+      </button>
+      <button form="gas-station-login" id="login-button" type="submit" mat-flat-button>
+        <div>
+          Seguir →
+        </div>
+      </button>
+    </div>
+
+    <div *ngIf="currentStep === 1" class="register-buttons">
+      <button id="login-button" mat-flat-button (click)="initGasStationRegister()">
+        <div>
+          Cadastrar um novo posto
+        </div>
+      </button>
+    </div>
+  </section>
+  <!-- Final escolher posto -->
+
+  <section *ngIf="currentStep === 3" class="text-section right">
+    <form id="gas-station-register" *ngIf="currentStep === 3" class="form-container"
+      [formGroup]="gasStationRegisterGroup" (ngSubmit)="submitGasRegister($event)">
+
+      <label for="name" class="form-label">Qual o nome do posto de combustível?</label>
+      <mat-form-field appearance="outline">
+        <input id="name" type="text" formControlName="name" matInput>
+        <mat-error *ngIf="name.invalid && (name.dirty || name.touched) && name.errors.required">
+          Nome do posto é <strong>obrigatório</strong>
+        </mat-error>
+        <mat-error *ngIf="name.invalid && (name.dirty || name.touched) && name.errors.minlength">
+          Nome do posto precisa ter no mínimo <strong>6 caracteres</strong>
+        </mat-error>
+        <mat-error *ngIf="name.invalid && (name.dirty || name.touched) && name.errors.maxlength">
+          Nome do posto  pode ter no máximo <strong>50 caracteres</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <table style="width: 100%;" cellspacing="0">
+        <tr>
+
+          <td>
+            <label for="cnpj" class="form-label">Qual o CNPJ?</label>
+            <mat-form-field appearance="outline">
+              <input id="cnpj" type="text" mask="00.000.000/0000-00" formControlName="cnpj" matInput>
+              <mat-error *ngIf="cnpj.invalid && (cnpj.dirty || cnpj.touched) && cnpj.errors.required">
+                CNPJ é <strong>obrigatório</strong>
+              </mat-error>
+              <mat-error *ngIf="cnpj.invalid && (cnpj.dirty || cnpj.touched) && cnpj.errors.minlength">
+                Digite um CNPJ <strong>válido</strong>
+              </mat-error>
+              <mat-error *ngIf="cnpj.invalid && (cnpj.dirty || cnpj.touched) && cnpj.errors.maxlength">
+                Digite um CNPJ <strong>válido</strong>
+              </mat-error>
+            </mat-form-field>
+          </td>
+
+
+          <td>
+            <label for="flag" class="form-label">Qual a Bandeira?</label>
+            <mat-form-field appearance="outline">
+              <mat-select id="flag" formControlName="flag">
+                <mat-option *ngFor="let flag of gasStationsFlags" value="{{flag}}">
+                  {{flag.toUpperCase()}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="flag.invalid && (flag.dirty || flag.touched) && flag.errors.required">
+                Bandeira é <strong>obrigatório</strong>
+              </mat-error>
+            </mat-form-field>
+          </td>
+
+        </tr>
+      </table>
+
+      <table>
+        <tr>
+
+          <td>
+            <label for="street" class="form-label">Qual rua?</label>
+            <mat-form-field appearance="outline">
+              <input id="street" type="text" formControlName="street" matInput>
+              <mat-error *ngIf="street.invalid && (street.dirty || street.touched) && street.errors.required">
+                Rua é <strong>obrigatório</strong>
+              </mat-error>
+              <mat-error *ngIf="street.invalid && (street.dirty || street.touched) && street.errors.minlength">
+                Rua precisa ter no mínimo <strong>6 caracteres</strong>
+              </mat-error>
+              <mat-error *ngIf="street.invalid && (street.dirty || street.touched) && street.errors.maxlength">
+                Rua pode ter no máximo <strong>100 caracteres</strong>
+              </mat-error>
+            </mat-form-field>
+          </td>
+
+          <td>
+            <label for="streetNumber" class="form-label">Número?</label>
+            <mat-form-field appearance="outline">
+              <input id="streetNumber" type="text" formControlName="streetNumber" matInput>
+              <mat-error
+                *ngIf="streetNumber.invalid && (streetNumber.dirty || streetNumber.touched) && streetNumber.errors.required">
+                Número da rua é <strong>obrigatório</strong>
+              </mat-error>
+              <mat-error
+                *ngIf="streetNumber.invalid && (streetNumber.dirty || streetNumber.touched) && streetNumber.errors.minlength">
+                Número da rua precisa ter no mínimo <strong>6 caracteres</strong>
+              </mat-error>
+              <mat-error
+                *ngIf="streetNumber.invalid && (streetNumber.dirty || streetNumber.touched) && streetNumber.errors.maxlength">
+                Número da rua pode ter no máximo <strong>10 caracteres</strong>
+              </mat-error>
+            </mat-form-field>
+          </td>
+
+        </tr>
+      </table>
+
+      <label for="neighborhood" class="form-label">E bairro?</label>
+      <mat-form-field appearance="outline">
+        <input id="neighborhood" type="text" formControlName="neighborhood" matInput>
+        <mat-error
+          *ngIf="neighborhood.invalid && (neighborhood.dirty || neighborhood.touched) && neighborhood.errors.required">
+          Bairro é <strong>obrigatório</strong>
+        </mat-error>
+        <mat-error
+          *ngIf="neighborhood.invalid && (neighborhood.dirty || neighborhood.touched) && neighborhood.errors.minlength">
+          Bairro precisa ter no mínimo <strong>6 caracteres</strong>
+        </mat-error>
+        <mat-error
+          *ngIf="neighborhood.invalid && (neighborhood.dirty || neighborhood.touched) && neighborhood.errors.maxlength">
+          Bairro pode ter no máximo <strong>50 caracteres</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <label for="zip" class="form-label">CEP?</label>
+      <mat-form-field appearance="outline">
+        <input id="zip" type="text" mask="00000-000" formControlName="zip" matInput>
+        <mat-error *ngIf="zip.invalid && (zip.dirty || zip.touched) && zip.errors.required">
+          CEP é <strong>obrigatório</strong>
+        </mat-error>
+        <mat-error *ngIf="zip.invalid && (zip.dirty || zip.touched) && zip.errors.minlength">
+          Digite um CEP <strong>válido</strong>
+        </mat-error>
+        <mat-error *ngIf="zip.invalid && (zip.dirty || zip.touched) && zip.errors.maxlength">
+          Digite um CEP <strong>válido</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <table>
+        <tr>
+          <td>
+            <label for="openTime" class="form-label">Que horas abre? </label>
+            <mat-form-field appearance="outline">
+              <!-- mask="00:00:00" -->
+              <input id="openTime" type="text"  placeholder="(HH:MM:SS)" formControlName="openTime" matInput>
+              <mat-error *ngIf="openTime.invalid && (openTime.dirty || openTime.touched) && openTime.errors.required">
+                Horário de abertura é <strong>obrigatório</strong>
+              </mat-error>
+              <mat-error *ngIf="openTime.invalid && (openTime.dirty || openTime.touched) && openTime.errors.minlength">
+                Digite um Horário de abertura <strong>válido</strong>
+              </mat-error>
+              <mat-error *ngIf="openTime.invalid && (openTime.dirty || openTime.touched) && openTime.errors.maxlength">
+                Digite um Horário de abertura <strong>válido</strong>
+              </mat-error>
+            </mat-form-field>
+          </td>
+          <td>
+            <label for="closeTime" class="form-label">Que horas fecha?</label>
+            <mat-form-field appearance="outline">
+              <input id="closeTime" type="text"   placeholder="(HH:MM:SS)" formControlName="closeTime" matInput>
+              <mat-error
+                *ngIf="closeTime.invalid && (closeTime.dirty || closeTime.touched) && closeTime.errors.required">
+                Horário de fechamento é <strong>obrigatório</strong>
+              </mat-error>
+              <mat-error
+                *ngIf="closeTime.invalid && (closeTime.dirty || closeTime.touched) && closeTime.errors.minlength">
+                Digite um Horário de fechamento <strong>válido</strong>
+              </mat-error>
+              <mat-error
+                *ngIf="closeTime.invalid && (closeTime.dirty || closeTime.touched) && closeTime.errors.maxlength">
+                Digite um Horário de fechamento <strong>válido</strong>
+              </mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+
+      <label for="phone" class="form-label">Qual telefone?</label>
+      <mat-form-field appearance="outline">
+        <input id="phone" type="text" formControlName="phone" mask="(00) 0000-0000||(00) 0 0000-0000" matInput>
+        <mat-error *ngIf="phone.invalid && (phone.dirty || phone.touched) && phone.errors.required">
+          Telefone é <strong>obrigatório</strong>
+        </mat-error>
+        <mat-error *ngIf="phone.invalid && (phone.dirty || phone.touched) && phone.errors.minlength">
+          Digite um Telefone <strong>válido</strong>
+        </mat-error>
+        <mat-error *ngIf="phone.invalid && (phone.dirty || phone.touched) && phone.errors.maxlength">
+          Digite um Telefone <strong>válido</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-card class="error-card">{{getErrorMessage()}}</mat-card>
+
+    </form>
+    <div class="login-buttons">
+      <button id="back-button" mat-flat-button class="btn-back" (click)="back()">
+        <div>
+          ← Voltar
+        </div>
+      </button>
+      <button form="gas-station-register" id="login-button" type="submit" mat-flat-button>
+        <div>
+          Seguir →
+        </div>
+      </button>
+    </div>
+  </section>
+  <!-- Final lado direito -->
+</main>
+
+<main *ngIf="currentStep === 4">
+  <div class="center-div">
+    <!-- <h1>Muito bem! <br>Seu posto foi cadastrado com sucesso.<br>Utilize o código abaixo para acessá-lo!</h1> -->
+    <h1>Muito bem! <br>Seu posto foi cadastrado com sucesso!</h1>
+    <!-- <h2>123 ABC 123</h2> -->
+    <!-- <span>Utilize esse código para acessar seu posto tanto pelo site quanto pelo aplicativo Etanóis</span> -->
+    <button mat-flat-button (click)="back()" class="btn-next">
+      <div class="btn-text">
+        Ir para a Área do Frentista
+      </div>
+    </button>
+  </div>
+</main>
+
+<main *ngIf="currentStep === 6">
+  <div class="center-div">
+    <h1>Tudo certo!<br>Email enviado para:</h1>
+    <h2>{{passwordRecoverGroup.value.email}}</h2>
+    <span>Agora só acessa-lo e recuperar sua senha.</span>
+    <button mat-flat-button (click)="back()" class="btn-next">
+      <div class="btn-text">
+        Ir para a Área do Frentista
+      </div>
+    </button>
+  </div>
+</main>

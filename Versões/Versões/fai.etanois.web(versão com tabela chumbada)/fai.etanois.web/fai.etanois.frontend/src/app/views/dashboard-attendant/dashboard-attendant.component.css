@@ -1,0 +1,75 @@
+/* .dashboard.title {
+    position: absolute; 
+	left: 100px;
+	top: 150px; 
+}
+
+.title{
+    font-family: bagatela, serif;
+    font-weight: 800;
+    height: 100%;
+    text-align: left;
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -0.27px;
+    line-height: 77px;
+    color: #1A1A1A;
+} */
+
+p{
+    font-family: bagatela, serif;
+    font-weight: 800;
+    height: 100%;
+    text-align: 200px;
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -0.27px;
+    line-height: 77px;
+    color: #1A1A1A;
+}
+
+body{
+	background-color: #ffff;/*cor pagina inteira*/
+}
+
+/*removendo espaçamento padrão navegador.*/
+*{
+
+	margin: 0;
+	padding: 0;
+
+}
+
+header{
+	background-color: #ffff;
+	height: auto;
+}
+
+/* #div_esquerda{
+
+	background-color: #ffff;
+	min-height: 200px;/*começa com 200 e vai crescendo conforme necessidade*/
+	/* width: 200px; */
+	/* float:left;deixa as divs uma do lado da outra */
+/* }  */
+
+
+#div_direita{
+
+	background-color: #ffff;
+	min-height: 200px;
+	width: 100;
+	/* float: 0px; */
+}
+/* footer{
+	clear: both; /*para força ela aparecer depois de usar float*/
+	/* background-color:  yellow;
+	height: 30px;
+}  */
+
+/*class*/
+.container{
+	width: auto;
+	margin: auto; /*calcula espaço*/
+    margin: 0 auto;  
+ }

@@ -1,0 +1,19 @@
+<mat-toolbar class="header" role="heading" aria-label="navigation">
+    <mat-toolbar-row>
+        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <span>
+            <app-header-logo></app-header-logo>
+        </span>
+        <div class="spacer"></div>
+        <div *ngIf="!usuarioLogado">
+        <span>
+            <app-header-navigation></app-header-navigation>
+        </span>
+    </div>
+    <div *ngIf="usuarioLogado">
+        <span  >
+            <app-header-navigation-user-authorization></app-header-navigation-user-authorization>
+        </span>
+    </div>
+    </mat-toolbar-row>
+</mat-toolbar>

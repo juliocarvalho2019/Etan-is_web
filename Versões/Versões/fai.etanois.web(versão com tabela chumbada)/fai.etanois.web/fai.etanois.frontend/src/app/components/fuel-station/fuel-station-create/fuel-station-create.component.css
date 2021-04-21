@@ -1,0 +1,126 @@
+body {
+    height: calc(100vh - 214px);
+    width: 100%;
+    background-color: #fafafa;
+    /* Adicionado cor no background*/
+    font-family: bagatela, serif;
+}
+
+.manage-container {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: start;
+}
+
+.manage-info-section {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.manage-h1 {
+    font-family: bagatela, serif;
+    font-weight: 800;
+    height: 100%;
+    text-align: left;
+    font-size: 54px;
+    font-weight: 800;
+    letter-spacing: -0.27px;
+    line-height: 77px;
+    color: #11205e;
+}
+
+
+.manage-h2 {
+    font-family: bagatela, serif;
+    height: 100%;
+    padding-right: 50px;
+    text-align: left;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: -0.12px;
+    line-height: normal;
+    color: #1a1a1a;
+}
+
+.manage-input-section {
+    position: relative;
+    margin: 0 auto;
+    width: 575px;
+}
+
+.input-item-div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.input-item-div label {
+    font-family: bagatela, serif;
+    font-weight: 800;
+    font-size: 24px;
+    color: #11205e;
+}
+
+
+.input-item-div input {
+    outline: none;
+    width: 100%;
+    font-family: bagatela, serif;
+    font-weight: 600;
+    font-size: 24px;
+    background-color: #dadada;
+    padding: 18px 20px;
+    margin-bottom: 30px;
+    color: #1a1a1a;
+    border: none;
+    border-radius: 20px;
+}
+
+
+.manage-buttons-div {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    width: 100%;
+}
+
+.manage-buttons-div button {
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-family: bagatela, serif;
+    font-size: 24px;
+    text-align: left;
+}
+
+.manage-buttons-div button:first-child {
+    margin-left: auto;
+    height: 60px;
+    width: 200px;
+    color: #11205e;
+    background: transparent;
+    font-weight: bold;
+    padding: 8px;
+    border: none;
+    outline: none;
+}
+
+.manage-buttons-div button:last-child {
+    height: 60px;
+    width: 200px;
+    color: #fafafa;
+    font-weight: bold;
+    background: #ff951c;
+    border-radius: 10px;
+    padding: 8px;
+    border: none;
+    outline: none;
+}
+
+.input-item {
+    color: #ff951c;
+}

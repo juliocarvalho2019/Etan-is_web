@@ -1,0 +1,60 @@
+p {
+    top: 181px;
+    left: 201px;
+    width: 456px;
+    height: 24px;
+    text-align: left;
+    font: Dark 24px/34px Bagatela;
+    letter-spacing: -0.12px;
+    color: #FF951C;
+    opacity: 1;
+}
+
+button {
+    top: auto;
+    left: auto;
+    width: 100px;
+    height: 40px;
+    color: #fafafa;
+    font: Dark 16px/22px Bagatela;
+    background: #208016;
+    border-radius: 10px;
+    opacity: 1;
+}
+
+
+
+#div_esquerda {
+
+    background-color: #ffff;
+    min-height: auto;
+    /*começa com 200 e vai crescendo conforme necessidade*/
+    width: auto;
+    float: left;
+    /*deixa as divs uma do lado da outra*/
+ } 
+
+
+#div_direita {
+
+    background-color: #ffff;
+    min-height: auto;
+    width: auto;
+    float: right;
+}
+
+#div_lista {
+    clear: both;
+}
+
+.title {
+    top: 264px;
+    left: 485px;
+    width: 424px;
+    height: 36px;
+    text-align: left;
+    font: Bold 36px/50px Bagatela;
+    letter-spacing: -0.18px;
+    color: #FF951C;
+    opacity: 1;
+}

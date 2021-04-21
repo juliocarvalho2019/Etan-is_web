@@ -1,0 +1,43 @@
+<!-- <h1>Editar Posto</h1>
+<br> -->
+<section class="text-section right">
+  <form id="update-form" class="form-container" [formGroup]="fuelStationGroup" (ngSubmit)="confirmUpdate($event)">
+    <label for="name" class="form-label">Qual o nome do posto de combustível?</label>
+    <mat-form-field appearance="outline" class="login-form-field">
+        <input id="name" type="text" formControlName="name" matInput>
+    </mat-form-field>
+    <label for="street" class="form-label">Qual a rua?</label>
+    <mat-form-field appearance="outline" class="login-form-field">
+        <input id="street" type="text" formControlName="street" matInput>
+    </mat-form-field>
+    <label for="street_number" class="form-label">Número?</label>
+    <mat-form-field appearance="outline" class="login-form-field">
+        <input id="street_number" type="text" formControlName="street_number" matInput>
+    </mat-form-field>
+    <label for="neighborhood" class="form-label">E o bairro?</label>
+    <mat-form-field appearance="outline" class="login-form-field">
+        <input id="neighborhood" type="text" formControlName="neighborhood" matInput>
+    </mat-form-field>
+    <!-- <label for="city" class="form-label">Cidade?</label>
+    <mat-form-field appearance="outline" class="login-form-field">
+        <input id="city" type="text" formControlName="city" matInput>
+    </mat-form-field> -->
+    <!-- <label for="cep" class="form-label">Cep?</label>
+    <mat-form-field appearance="outline" class="login-form-field">
+        <input id="cep" type="text" formControlName="cep" matInput>
+    </mat-form-field> -->
+    <!-- <mat-card class="error-card" *ngIf="registerError">{{getErrorMessage()}}</mat-card> -->
+  </form>
+<div class="buttons-row">
+    <button form="update-form" id="update-button" type="submit" mat-flat-button>
+      <div>
+        Atualizar
+      </div>
+    </button>
+    <button (click)="cancel()" id="cancel-button" mat-flat-button>
+      <div>
+        Cancelar
+      </div>
+    </button>
+  </div>
+</section>

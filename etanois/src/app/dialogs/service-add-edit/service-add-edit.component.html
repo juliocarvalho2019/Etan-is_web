@@ -1,0 +1,50 @@
+<section class="text-section right">
+  <form id="service-form" class="form-container" [formGroup]="serviceGroup"
+    (ngSubmit)="currentService ? updateService($event) : createService($event)">
+    <label for="service-select" class="form-label">Serviços</label>
+    <mat-form-field appearance="outline">
+      <mat-label class="form-label">Selecione o Tipo de Serviço</mat-label>
+      <mat-select id="service-select" formControlName="type" [disabled]="currentService">
+        <mat-option *ngFor="let service of servicesToSelect" value="{{service}}">
+          {{translateServiceName(service)}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-checkbox id="service24" class="form-label" (change)="changeService24Status($event.checked)"
+      [checked]="serviceGroup.value.service24">
+      24 horas
+    </mat-checkbox>
+    <table style="width: 100%;">
+      <tr>
+        <td>
+          <label for="openTime" class="form-label">Abertura</label>
+          <mat-form-field appearance="outline">
+            <!-- mask="00:00:00" -->
+            <input id="openTime" type="text" formControlName="openTime" [disabled]="serviceGroup.value.service24"
+              matInput>
+          </mat-form-field>
+        </td>
+        <td>
+          <label for="closeTime" class="form-label">Fechamento</label>
+          <mat-form-field appearance="outline">
+            <input id="closeTime" type="text" formControlName="closeTime" [disabled]="serviceGroup.value.service24"
+              matInput>
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+    <!-- <mat-card class="error-card" *ngIf="registerError">{{getErrorMessage()}}</mat-card> -->
+  </form>
+  <div class="buttons-row">
+    <button id="update-button" type="submit" form="service-form" mat-flat-button>
+      <div>
+        {{currentService ?  'Atualizar' : 'Criar'}}
+      </div>
+    </button>
+    <button (click)="cancel()" id="cancel-button" mat-flat-button>
+      <div>
+        Cancelar
+      </div>
+    </button>
+  </div>
+</section>

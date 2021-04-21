@@ -1,0 +1,29 @@
+.label-item-div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.label-item-div label {
+    font-family: bagatela, serif;
+    font-weight: 800;
+    font-size: 24px;
+    text-align: center;
+}
+
+.label-item-div label {
+    outline: none;
+    width: 100%;
+    font-family: bagatela, serif;
+    font-weight: 600;
+    font-size: 24px;
+    background-color: #dadada;
+    padding: 8px 20px;
+    margin-bottom: 30px;
+    color: #11205e;
+    border: none;
+    border-radius: 20px;
+   
+    
+}

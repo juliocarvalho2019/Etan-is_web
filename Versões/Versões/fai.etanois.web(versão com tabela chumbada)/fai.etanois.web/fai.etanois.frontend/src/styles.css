@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+html,
+body {
+    background-color: #fafafa;
+    margin: 0;
+    font-family: bagatela, serif;
+    margin-bottom: 50px;
+}
+
+.red {
+    color: rgb(277, 94, 107);
+}
+
+/*mensagem sucesso*/
+.msg-success {
+    background-color: #28a754;
+    color: #fff;
+}
+/*mensagem erro*/
+.msg-error {
+    background-color: #e35e6b;
+    color: #fff;
+}

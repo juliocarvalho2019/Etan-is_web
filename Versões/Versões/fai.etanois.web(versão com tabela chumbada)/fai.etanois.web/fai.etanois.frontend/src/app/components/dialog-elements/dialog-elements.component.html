@@ -1,0 +1,6 @@
+<h1 mat-dialog-title class="title">{{title}}</h1>
+<div mat-dialog-content class="subtitle">{{message}}</div>
+<div mat-dialog-actions>
+  <button class="btn btn-light" mat-button (click)="onClose(false)">Cancelar</button>
+  <button  class="btn btn-danger" mat-button (click)="onClose(true)">Excluir</button>
+</div>

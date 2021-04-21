@@ -1,0 +1,61 @@
+<body>
+   <link rel="stylesheet" href="https://use.typekit.net/dzj6knh.css">
+   <div class="manage-container">
+       <section class="manage-info-section">
+           <h1 class="manage-h1">Olá, gerente!
+               <br>
+               Deseja realmente 
+               <br>
+               excluir o seu cadastro? 
+               <br>
+               O Etanóis agradece,
+               <br>
+               e está sempre pronto a 
+               <br>
+               ajudá-lo, caso deseje 
+                <br>
+                voltar a ser nosso cliente.</h1>
+           <!-- <p class="manage-h2">Credencie seu posto de combustível e tenha controle
+               <br>
+               sobre seu negócio. O Etanóis possui diversos
+               <br>
+               recursos que facilitam o seu trabalho!
+           </p>
+           <br>
+           <p class="manage-p-bold">Já é cadastrado?</p>
+           <a class="attendant-link" href="attendant-area-login" > Vá para a Área do Frentista</a> -->
+       </section>
+       <section class="manage-input-section">
+           <div class="input-item-div">
+               <label>Nome:</label>
+               <input type="name" name="name" placeholder="Digite seu nome"
+               [value]="usuarioLogado.name" name="name" disabled>
+           </div>
+           <div class="input-item-div">
+               <label>Apelido:</label>
+               <input type="text" name="username" placeholder="Digite seu apelido"
+               [value]="usuarioLogado.username" name="username"disabled>
+           </div>
+           <div class="input-item-div">
+               <label>E-mail:</label>
+               <input type="email" name="email" placeholder="Digite seu e-mail"
+               [value]="usuarioLogado.email" name="email"disabled>
+           </div>
+           <!-- <div class="input-item-div">
+               <label>Digite sua nova senha de acesso</label>
+               <input type="password" name="new_password" placeholder="Digite sua nova senha"
+               [(ngModel)]="usuarioLogado.new_password" name="new_password" required>
+           </div> -->
+           <!-- <div class="input-item-div">
+               <label>Digite sua antiga senha acesso</label>
+               <input type="password" name="old_password" placeholder="Digite sua antiga senha"
+               [(ngModel)]="usuarioLogado.old_password" name="old_password" required>
+           </div> -->
+           <div class="manage-buttons-div">
+               <button type="button" class="btn1" (click)="cancel()">
+                   < Voltar</button>
+                       <button type="button" class="btn2" (click)="openDialog()">Excluir ></button>
+           </div>
+       </section>
+   </div>
+</body>

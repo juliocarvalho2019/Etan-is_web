@@ -1,0 +1,97 @@
+<body>
+   <link rel="stylesheet" href="https://use.typekit.net/dzj6knh.css">
+   <div class="manage-container">
+       <section class="manage-info-section">
+           <h1 class="manage-h1">Olá, gerente!
+               <br>
+               Atualize sempre que 
+               <br>
+               necessário o seu cadastro, 
+               <br>
+               para que possamos
+               <br>
+               mantê-lo informado.
+           </h1>
+           <br>
+       </section>
+       <section class="manage-input-section">
+        <form [formGroup]="formulario" (ngSubmit)="enviarDados()">
+           <div class="input-item-div">
+               <label for="name">Qual o seu novo nome?</label>
+               <input type="text" name="name" placeholder="Digite seu nome"
+                [(ngModel)]="usuarioLogado.name" formControlName="name" required>
+
+              <div class="input-item" *ngIf="!name.pristine && name.errors">
+
+                 <div class="alert alert-danger" role="alert" *ngIf="name.errors.required">
+                    Nome é obrigatório.
+                 </div>
+
+                 <div class="alert alert-danger" role="alert" *ngIf="name.errors.minlength">
+                    Nome deve ter no mínimo 3 caracters.
+                 </div>
+
+                 <div class="alert alert-danger" role="alert" *ngIf="name.errors.maxlength">
+                    Nome deve ter no máximo 50 caracters.
+                 </div>
+              </div>
+           </div>
+           <div class="input-item-div">
+               <label for="username">Qual o seu apelido?</label>
+               <input type="text" name="username" placeholder="Digite seu apelido"
+                [(ngModel)]="usuarioLogado.username" formControlName="username" disabled>
+           </div>
+           <div class="input-item-div">
+               <label for="email">Qual o seu melhor e-mail?</label>
+               <input type="email" name="email" placeholder="Digite seu e-mail"
+               [(ngModel)]="usuarioLogado.email" formControlName="email" disabled>
+           </div>
+           <div class="input-item-div">
+            <label for="old_password">Digite sua  senha atual</label>
+            <input type="password" name="old_password" placeholder="Digite sua senha atual"
+            [(ngModel)]="usuarioLogado.old_password" formControlName="old_password"required>
+
+             <div class="input-item" *ngIf="!old_password.pristine && old_password.errors">
+
+                <div class="alert alert-danger" role="alert" *ngIf="old_password.errors.required">
+                     Senha atual é obrigatória.
+                </div>
+             </div>
+
+        </div>
+           <div class="input-item-div">
+               <label for="new_password">Digite sua nova senha de acesso</label>
+               <input type="password" name="new_password" placeholder="Digite sua nova senha"
+               [(ngModel)]="usuarioLogado.new_password" formControlName="new_password" required>
+
+                <div class="input-item" *ngIf="!new_password.pristine && new_password.errors">
+                   
+                   <div class="alert alert-danger" role="alert" *ngIf="new_password.errors.required">
+                     Nova senha é obrigatória.
+                   </div>
+
+                   <div class="alert alert-danger" role="alert" *ngIf="new_password.errors.minlength">
+                    Nova senha deve ter no mínimo 6 caracters.
+                  </div>
+
+                  <div class="alert alert-danger" role="alert" *ngIf="new_password.errors.maxlength">
+                    Nova senha deve ter no máximo 255 caracters.
+                  </div>
+                </div>
+                
+                <div class="alert alert-danger" role="alert" *ngIf="old_passwordError">
+                    {{ old_passwordError }}
+                </div>    
+           </div>
+
+           <div class="manage-buttons-div">
+               <button type="button" class="btn1" (click)="cancel()">
+                   < Voltar</button>
+                       <button [disabled]="!formulario.valid" type="button" class="btn2" (click)="updateUser()">Atualizar ></button>
+           </div>
+              <!-- <div>{{ formulario.value | json}}</div>
+              <div>{{ formulario.valid | json }}</div> -->
+        </form>
+       </section>
+   </div>
+</body>

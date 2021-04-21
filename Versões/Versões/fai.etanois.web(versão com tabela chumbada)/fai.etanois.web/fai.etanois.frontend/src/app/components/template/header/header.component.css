@@ -1,0 +1,16 @@
+.header {
+    /*  
+    Display flex e justify-content para centralizar os itens no header
+    */
+    font-family: bagatela, serif;
+    display: flex;
+    justify-content: center;
+    padding: 0 45px;
+    min-height: 150px;
+    width: 100%;
+    background-color: #fafafa; /* Adicionado cor de fundo */
+}
+
+.spacer {
+    flex: 1 1 auto;
+}

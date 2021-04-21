@@ -1,0 +1,66 @@
+body {
+    height: calc(100vh - 214px);
+    width: 100%;
+    background-color: #fafafa; /* Adicionado cor no background*/
+    font-family: bagatela, serif;
+}
+
+.manage-container {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: start;
+}
+
+.manage-info-section {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+    
+}
+
+.manage-h1 {
+    font-family: bagatela, serif;
+    font-weight: 800;
+    height: 100%;
+    text-align: center;
+    font-size: 54px;
+    font-weight: 800;
+    letter-spacing: -0.27px;
+    line-height: 77px;
+    color: #11205e;
+}
+
+.manage-p-bold {
+    display: inline;
+    font-family: bagatela, serif;
+    text-align: left;
+    font-size: 24px;
+    font-weight: bold;
+    color: #1a1a1a;
+}
+
+.attendant-link {
+    display: inline;
+    font-family: bagatela, serif;
+    text-align: left;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff951c;
+}
+
+.manage-buttons-div button:last-child {
+    height: 75px;
+    width: 500px;
+    color: #fafafa;
+    font-weight: bold;
+    background: #ff951c;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-family: bagatela, serif;
+    font-size: 40px;
+    font-weight: 393px;
+    text-align: centro;
+}

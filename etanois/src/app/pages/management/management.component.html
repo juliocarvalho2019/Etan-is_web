@@ -1,0 +1,92 @@
+<aside>
+  <nav>
+    <ul>
+      <li>
+        <a><img src="../../../assets/images/logotipo.png"></a>
+      </li>
+      <li (click)="changeMenu(0)" [ngClass]="activeMenu === 0 ? 'active':''">
+        <a><img src="../../../assets/svgs/avaliable-gas.svg"></a>
+      </li>
+      <li (click)="changeMenu(1)" [ngClass]="activeMenu === 1 ? 'active':''">
+        <a><img src="../../../assets/svgs/electrical-service.svg"></a>
+      </li>
+      <li (click)="changeMenu(2)" [ngClass]="activeMenu === 2 ? 'active':''">
+        <a><img src="../../../assets/svgs/attendant.svg"></a>
+      </li>
+      <li (click)="backToGasStationChoose()">
+        <a><img src="../../../assets/svgs/logout.svg"></a>
+      </li>
+    </ul>
+  </nav>
+</aside>
+
+<main *ngIf="activeMenu === 0">
+  <div class="row">
+    <h2>Gerenciamento dos combustíveis disponíveis</h2>
+    <button (click)="addFuel()" class="new-btn">Novo</button>
+  </div>
+  <div class="table">
+    <table>
+      <thead>
+        <tr>
+          <th>
+            Combustível
+          </th>
+          <th>
+            Preço
+          </th>
+          <th>
+            Ações
+          </th>
+        </tr>
+      </thead>
+      <tr *ngFor="let fuel of availableFuels" for>
+        <td>{{fuel.fuel }}</td>
+        <td>{{fuel.price | currency:'BRL'}}</td>
+        <td class="icons-btn">
+          <button class="edit-btn" (click)="editFuel(fuel)"><img src="../../../assets/images/edit.png"></button>
+          <button class="remove-btn" (click)="deleteFuel(fuel.fuel, fuel.id)">X</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</main>
+
+<main *ngIf="activeMenu === 1">
+  <div class="row">
+    <h2>Gerenciamento dos serviços disponíveis</h2>
+    <button (click)="addService()" class="new-btn">Novo</button>
+  </div>
+  <div class="table">
+    <table>
+      <thead>
+        <tr>
+          <th>
+            Serviço
+          </th>
+          <th>
+            Disponibilidade
+          </th>
+          <th>
+            Ações
+          </th>
+        </tr>
+      </thead>
+      <tr *ngFor="let service of availableServices" for>
+        <td>{{translateServiceName(service.service_type)}}</td>
+        <td>
+          <span *ngIf="service.time_to_open && service.time_to_close">
+            {{service.time_to_open}} as {{service.time_to_close}}
+          </span>
+          <mat-checkbox *ngIf="service.service_24_hours" checked="{{service.service_24_hours}}" disabled>
+            24 horas
+          </mat-checkbox>
+        </td>
+        <td class="icons-btn">
+          <button class="edit-btn" (click)="editService(service)"><img src="../../../assets/images/edit.png"></button>
+          <button class="remove-btn" (click)="deleteService(service)">X</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</main>

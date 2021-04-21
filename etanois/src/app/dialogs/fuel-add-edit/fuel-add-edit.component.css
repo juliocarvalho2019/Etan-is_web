@@ -1,0 +1,45 @@
+h1 {
+  font-size: 2.5rem;
+  color: #ff951c;
+  text-align: center;
+  line-height: 55px;
+  font-weight: 800;
+}
+section .form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  min-width: 640px;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.buttons-row {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 20px;
+}
+
+#cancel-button {
+  font-size: 1.5rem;
+  background-color: transparent;
+  color: #ff951c;
+  border:solid 1px;
+  min-width: 200px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+#update-button {
+  font-size: 1.5rem;
+  text-decoration: none;
+  min-width: 200px;
+  padding: 10px;
+  background-color: #208016;
+  color: #fafafa;
+  border-radius: 10px;
+}

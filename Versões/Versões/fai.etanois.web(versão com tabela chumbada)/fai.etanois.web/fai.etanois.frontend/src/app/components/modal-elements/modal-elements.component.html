@@ -1,0 +1,31 @@
+ <mat-dialog-content class="home">
+        <h1 mat-dialog-title class="title">{{title}}</h1>
+            <div class="modal-body">
+            <form>
+                <div class="div1">
+                    <label class="subtitle">Combustível</label>
+                    <div class="subtitle">
+                        <select class="input" [(ngModel)]="fuel.name">
+                            <option [ngValue]="fuel.name">Selecione o Combustível</option>
+                            <option value="1">Gasolina Comum</option>
+                            <option value="2">Gasolina Aditivada</option>
+                            <option value="3">Etanol</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="div2">
+                    <label class="subtitle">Preço</label>
+                    <div class="subtitle">
+                           <!-- <label>R$</label>  -->
+                         <input class="input2" placeholder="Preço (R$)" [(ngModel)]="fuel.price" type ="text" name="price" id="price">
+                    </div>  
+               </div>
+            </form>
+        </div>
+        <br>
+        <br>
+    <mat-dialog-actions class="manage-buttons-div">
+        <button mat-button (click)="createFuel()">Pronto!</button>
+        <button mat-button (click)="onClose(true)">Cancelar</button>
+      </mat-dialog-actions>
+</mat-dialog-content> 

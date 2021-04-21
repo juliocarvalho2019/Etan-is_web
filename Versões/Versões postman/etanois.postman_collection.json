@@ -1,0 +1,762 @@
+{
+	"info": {
+		"_postman_id": "8fdcd3f0-fc1f-4913-be0c-52a7f4158e82",
+		"name": "etanois",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "create-user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "teste",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "joaovitorteixeira10.jvt@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "User Teste 1",
+									"type": "text"
+								},
+								{
+									"key": "cep",
+									"value": "37.540-000",
+									"type": "text"
+								},
+								{
+									"key": "search_distance_with_route",
+									"value": "10000",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "search_distance_without_route",
+									"value": "1000",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "payment_mode",
+									"value": "both",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "user_preference_fuel[0][name]",
+									"value": "gasolina",
+									"type": "text"
+								},
+								{
+									"key": "user_preference_fuel[1][name]",
+									"value": "Gasolina Comum",
+									"type": "text"
+								},
+								{
+									"key": "user_preference_fuel[2][name]",
+									"value": "Etanol",
+									"type": "text"
+								},
+								{
+									"key": "user_preference_fuel[3][name]",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://api.etanois.com.br/api/v1/user/new",
+							"protocol": "http",
+							"host": [
+								"api",
+								"etanois",
+								"com",
+								"br"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "read-user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwicGFzc3dvcmQiOiIkMmIkMTAkNTVvY09HdnIzZFNRb1B2ZTFDZGt3ZWFybnJVRmc5eUdIaU9oM09qcVlUOWF1TFdOaENtR3UiLCJlbWFpbCI6ImpvYW92aXRvcnRlaXhlaXJhMTAuanZ0QGdtYWlsLmNvbSIsInVzZXJuYW1lIjoidGVzdGUifQ.OF93qq8OJGicYrjhWDWgWh6NQ0EmhnlBtO0CQsd9F-g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://api.etanois.com.br/api/v1/user/1",
+							"protocol": "http",
+							"host": [
+								"api",
+								"etanois",
+								"com",
+								"br"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6OCwicGFzc3dvcmQiOiIkMmIkMTAkY3dldTVpWDh3djdWLjNsY2hMRVhaZWc1UFVaSS90ajlLYmtrdlJ1YmNhaVpWVTJlMEZJZzIiLCJlbWFpbCI6ImpvYW92aXRvcnRlaXhlaXJhMTAuanZ0QGdtYWlsLmNvbSIsInVzZXJuYW1lIjoidGVzdGUifQ.HyrHFokgKDlCqxyZckUDf8NRfOKFq_qM0GlwbqBo4L0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "usuario teste",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "username",
+									"value": "984552145",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "old_password",
+									"value": "teste4321",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "new_password",
+									"value": "teste1234",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "payment_mode",
+									"value": "credit_card",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "cep",
+									"value": "37548000",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "teste@email.com",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "search_distance_with_route",
+									"value": "100",
+									"type": "text"
+								},
+								{
+									"key": "search_distance_without_route",
+									"value": "103",
+									"type": "text"
+								},
+								{
+									"key": "etacoins",
+									"value": "10",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "user_preference_fuels[0][name]",
+									"value": "Gasolina Comum",
+									"type": "text"
+								},
+								{
+									"key": "user_preference_fuels[1][name]",
+									"value": "etanol",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://api.etanois.com.br/api/v1/user/8",
+							"protocol": "http",
+							"host": [
+								"api",
+								"etanois",
+								"com",
+								"br"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "recovery-password",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://api.etanois.com.br/api/v1/user/forgot_password/e428be4322ecb2cb59c85ebfa5af47036ed37150",
+							"protocol": "http",
+							"host": [
+								"api",
+								"etanois",
+								"com",
+								"br"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"forgot_password",
+								"e428be4322ecb2cb59c85ebfa5af47036ed37150"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "forgot-password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "teste13",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "pdsolucoes.jvitor@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://api.etanois.com.br/api/v1/user/forgot_password",
+							"protocol": "http",
+							"host": [
+								"api",
+								"etanois",
+								"com",
+								"br"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"forgot_password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "activate_account",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://api.etanois.com.br/api/v1/user/activate_account/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJwZHNvbHVjb2VzLmp2aXRvckBnbWFpbC5jb20iLCJ1c2VybmFtZSI6InRlc3RlMTIifQ.-HVwz5w-zFNHyzVVlrRUa_Lvt-dfqIz9fdzbOgAClJY",
+							"protocol": "http",
+							"host": [
+								"api",
+								"etanois",
+								"com",
+								"br"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"activate_account",
+								"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJwZHNvbHVjb2VzLmp2aXRvckBnbWFpbC5jb20iLCJ1c2VybmFtZSI6InRlc3RlMTIifQ.-HVwz5w-zFNHyzVVlrRUa_Lvt-dfqIz9fdzbOgAClJY"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6OCwicGFzc3dvcmQiOiIkMmIkMTAkTHZEdlAzakkwdXh3VnU2WFVWS0c1dWsvSFNPYkhBQjFBTTl5d3FaVVc5enRKZ0pnSVl2ekMiLCJlbWFpbCI6InBkc29sdWNvZXMuanZpdG9yQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoidGVzdGUxMyJ9.Yhc9K1feeWzgftkwiK3450V8UI-en9VO4NhbL4XpUr0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://api.etanois.com.br/api/v1/user/8",
+							"protocol": "http",
+							"host": [
+								"api",
+								"etanois",
+								"com",
+								"br"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verify-existence-credentials",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "teste13",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "gustavao@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://api.etanois.com.br//api/v1/user/verify_use_of_credentials",
+							"protocol": "http",
+							"host": [
+								"api",
+								"etanois",
+								"com",
+								"br"
+							],
+							"path": [
+								"",
+								"api",
+								"v1",
+								"user",
+								"verify_use_of_credentials"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "fuel",
+			"item": [
+				{
+					"name": "real-all",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MywicGFzc3dvcmQiOiIkMmIkMTAkWVFGcVh1VW45cU85NTc1VUtYVmZ1ZXFVdVZtM3VwZlIvaGxqL0k1UzJucVdNeXhYMXpacS4iLCJlbWFpbCI6InBkc29sdWNvZXMuanZpdG9yQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoidGVzdGUxMyJ9.2qKtlAWXyi-uMTTfO0v8eILyzVOufcTEFZIR7ZtlYVM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://18.230.20.26/api/v1/fuel",
+							"protocol": "http",
+							"host": [
+								"18",
+								"230",
+								"20",
+								"26"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fuel"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "fuel-station",
+			"item": [
+				{
+					"name": "create-fuel-station",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwicGFzc3dvcmQiOiIkMmIkMTAkNTVvY09HdnIzZFNRb1B2ZTFDZGt3ZWFybnJVRmc5eUdIaU9oM09qcVlUOWF1TFdOaENtR3UiLCJlbWFpbCI6ImpvYW92aXRvcnRlaXhlaXJhMTAuanZ0QGdtYWlsLmNvbSIsInVzZXJuYW1lIjoidGVzdGUifQ.OF93qq8OJGicYrjhWDWgWh6NQ0EmhnlBtO0CQsd9F-g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "cnpj",
+									"value": "74.234.461/0001-65",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Posto do zezao",
+									"type": "text"
+								},
+								{
+									"key": "street",
+									"value": "rua alves correa",
+									"type": "text"
+								},
+								{
+									"key": "neighborhood",
+									"value": "bairro",
+									"type": "text"
+								},
+								{
+									"key": "cep",
+									"value": "37548-000",
+									"type": "text"
+								},
+								{
+									"key": "time_to_open",
+									"value": "23:00",
+									"type": "text"
+								},
+								{
+									"key": "time_to_close",
+									"value": "20:00:00",
+									"type": "text"
+								},
+								{
+									"key": "street_number",
+									"value": "655",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://api.etanois.com.br/api/v1/fuel_station/new",
+							"protocol": "http",
+							"host": [
+								"api",
+								"etanois",
+								"com",
+								"br"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fuel_station",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "read-only",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwicGFzc3dvcmQiOiIkMmIkMTAkNTVvY09HdnIzZFNRb1B2ZTFDZGt3ZWFybnJVRmc5eUdIaU9oM09qcVlUOWF1TFdOaENtR3UiLCJlbWFpbCI6ImpvYW92aXRvcnRlaXhlaXJhMTAuanZ0QGdtYWlsLmNvbSIsInVzZXJuYW1lIjoidGVzdGUifQ.OF93qq8OJGicYrjhWDWgWh6NQ0EmhnlBtO0CQsd9F-g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://api.etanois.com.br/api/v1/fuel_station/2",
+							"protocol": "http",
+							"host": [
+								"api",
+								"etanois",
+								"com",
+								"br"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fuel_station",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "read-by-user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwicGFzc3dvcmQiOiIkMmIkMTAkNTVvY09HdnIzZFNRb1B2ZTFDZGt3ZWFybnJVRmc5eUdIaU9oM09qcVlUOWF1TFdOaENtR3UiLCJlbWFpbCI6ImpvYW92aXRvcnRlaXhlaXJhMTAuanZ0QGdtYWlsLmNvbSIsInVzZXJuYW1lIjoidGVzdGUifQ.OF93qq8OJGicYrjhWDWgWh6NQ0EmhnlBtO0CQsd9F-g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://api.etanois.com.br/api/v1/fuel_station/read-all/1",
+							"protocol": "http",
+							"host": [
+								"api",
+								"etanois",
+								"com",
+								"br"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fuel_station",
+								"read-all",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-update-available-fuel",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwicGFzc3dvcmQiOiIkMmIkMTAkNTVvY09HdnIzZFNRb1B2ZTFDZGt3ZWFybnJVRmc5eUdIaU9oM09qcVlUOWF1TFdOaENtR3UiLCJlbWFpbCI6ImpvYW92aXRvcnRlaXhlaXJhMTAuanZ0QGdtYWlsLmNvbSIsInVzZXJuYW1lIjoidGVzdGUifQ.OF93qq8OJGicYrjhWDWgWh6NQ0EmhnlBtO0CQsd9F-g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "available_fuels[0][fuel]",
+									"value": "Gasolina Comum",
+									"type": "text"
+								},
+								{
+									"key": "available_fuels[0][price]",
+									"value": "2.38",
+									"type": "text"
+								},
+								{
+									"key": "available_fuels[1][price]",
+									"value": "2.89",
+									"type": "text"
+								},
+								{
+									"key": "available_fuels[1][fuel]",
+									"value": "Gasolina Aditivada",
+									"type": "text"
+								},
+								{
+									"key": "available_fuels[2][fuel]",
+									"value": "etanol",
+									"type": "text"
+								},
+								{
+									"key": "available_fuels[2][price]",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://api.etanois.com.br/api/v1/fuel_station/2/available-fuel",
+							"protocol": "http",
+							"host": [
+								"api",
+								"etanois",
+								"com",
+								"br"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fuel_station",
+								"2",
+								"available-fuel"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "generate-token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "pdsolucoes.jvitor@gmail.com",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "username",
+							"value": "teste",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://api.etanois.com.br//api/v1/auth/token/",
+					"protocol": "http",
+					"host": [
+						"api",
+						"etanois",
+						"com",
+						"br"
+					],
+					"path": [
+						"",
+						"api",
+						"v1",
+						"auth",
+						"token",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

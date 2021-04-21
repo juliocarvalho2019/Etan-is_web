@@ -1,0 +1,51 @@
+<!-- <h1 class="modal-title">{{title}}</h1> -->
+<section class="text-section right">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/i18n/angular-locale_pt-br.js"></script>
+
+  <form id="fuel-form" class="form-container" [formGroup]="fuelGroup"
+    (ngSubmit)="fuel ? updateFuel($event) : createFuel($event)">
+    <table style="width: 100%;">
+      <tr>
+        <td style="width: 100%;">
+          <label for="fuel-select" class="form-label">Combustível</label>
+          <mat-form-field appearance="outline">
+            <mat-label class="form-label">Selecione o Tipo de Combustível</mat-label>
+            <mat-select id="fuel-select" formControlName="fuel">
+              <mat-option default value="0">
+                Gasolina Comum
+              </mat-option>
+              <mat-option value="1">
+                Gasolina Aditivada
+              </mat-option>
+              <mat-option value="2">
+                Etanol
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </td>
+        <td>
+          <label for="price" class="form-label" ng-model="price" >Preço</label>
+          <mat-form-field appearance="outline">
+            <input id="price" type="text" formControlName="price" 
+            prefix="R$" matInput currencyMask [options]="{ prefix: '', 
+            thousands: '.', decimal: ',', allowNegative: false }">
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+    <!-- <mat-card class="error-card" *ngIf="registerError">{{getErrorMessage()}}</mat-card> -->
+  </form>
+  <div class="buttons-row">
+    <button id="update-button" type="submit" form="fuel-form" mat-flat-button>
+      <div>
+        {{fuel?  'Atualizar' : 'Criar'}}
+      </div>
+    </button>
+    <button (click)="cancel()" id="cancel-button" mat-flat-button>
+      <div>
+        Cancelar
+      </div>
+    </button>
+  </div>
+</section>

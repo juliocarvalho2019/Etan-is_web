@@ -1,0 +1,158 @@
+<body>
+    <link rel="stylesheet" href="https://use.typekit.net/dzj6knh.css">
+    <div class="manage-container">
+        <section class="manage-info-section">
+            <h1 class="manage-h1">Certo, Manuel!
+                <br>
+                Em poucos minutos você
+                <br>
+                irá ter acesso a todas as
+                <br>
+                ferramentas do Etanóis.</h1>
+            <br>
+            <p class="manage-h2">Insira os dados do seu posto nos campos ao lado e o
+                <br>
+                restante o Etanóis fará por você.
+            </p>
+        </section> 
+
+        <section class="manage-input-section">
+         <form [formGroup]="formulario" (ngSubmit)="enviarDados()">
+            <div class="input-item-div">
+                <label for="name">Qual o nome do posto de combustível?</label>
+                <input type="text" name="name" placeholder="Digite nome do posto"
+                [(ngModel)]="fuelStation.name" formControlName="name"  required>
+ 
+                <div class="input-item" *ngIf="!name.pristine && name.errors">
+                 <div class="alert alert-danger" role="alert" *ngIf="name.errors.required">
+                   Nome do posto é obrigatório.
+                 </div> 
+                 <div class="alert alert-danger" role="alert" *ngIf="name.errors.minlength">
+                   Nome do posto deve ter no mínimo 3 caracters.
+                 </div>
+ 
+                 <div class="alert alert-danger" role="alert" *ngIf="name.errors.maxlength">
+                   Nome do posto deve ter no máximo 50 caracters.
+                 </div>
+               </div>
+            </div>
+            <div class="input-item-div">
+                <label for="cnpj">Qual razão social?</label>
+                <input (keyup)="cnpjMask()" type="text" name="cnpj" placeholder="Digite o cnpj"
+                [(ngModel)]="fuelStation.cnpj" formControlName="cnpj"  [mask]="maskCnpj">
+           
+                <div class="input-item" *ngIf="!cnpj.pristine && cnpj.errors">
+                 
+                   <div class="alert alert-danger" role="alert" *ngIf="cnpj.errors.required">
+                     CNPJ é obrigatório.
+                   </div>
+ 
+                   <div class="alert alert-danger" role="alert" *ngIf="cnpj.errors.minlength">
+                     CNPJ deve ter no mínimo 14 caracters.
+                   </div>
+                
+                   <div class="alert alert-danger" role="alert" *ngIf="cnpj.errors.maxlength">
+                     CNPJ deve ter no máximo 14 caracters.
+                   </div>
+                 </div>
+                 <div class="alert alert-danger" role="alert" *ngIf="cnpjError">
+                {{ cnpjError }}
+              </div>
+             </div>
+            <div class="input-item-div">
+                <label for="street">E o nome da Rua?</label>
+                <input type="text" name="street" placeholder="Digite o nome da Rua"
+                [(ngModel)]="fuelStation.street" formControlName="street" required>
+            
+                <div class="input-item" *ngIf="!street.pristine && street.errors">
+                 
+                 <div class="alert alert-danger" role="alert" *ngIf="street.errors.required">
+                   Rua é obrigatório.
+                 </div>
+ 
+                 <div class="alert alert-danger" role="alert" *ngIf="street.errors.minlength">
+                   Rua deve ter no mínimo 6 caracters.
+                 </div>
+                
+                 <div class="alert alert-danger" role="alert" *ngIf="street.errors.maxlength">
+                   Rua deve ter no máximo 50 caracters.
+                 </div>
+               </div>
+             </div>
+            <div class="input-item-div">
+                <label for="neighborhood">Agora o bairro</label>
+                <input type="text" name="neighborhood" placeholder="Digite o bairro"
+                [(ngModel)]="fuelStation.neighborhood"  formControlName="neighborhood" required>
+ 
+                <div class="input-item" *ngIf="!neighborhood.pristine && neighborhood.errors">
+ 
+                 <div class="alert alert-danger" role="alert" *ngIf="neighborhood.errors.required">
+                   Bairro é obrigatório.
+                 </div>
+ 
+                 <div class="alert alert-danger" role="alert" *ngIf="neighborhood.errors.minlength">
+                   Bairro deve ter no mínimo 10 caracters.
+                 </div>
+ 
+                 <div class="alert alert-danger" role="alert" *ngIf="neighborhood.errors.maxlength">
+                   Bairro deve ter no máximo 50 caracters.
+                 </div>
+               </div>
+            </div>
+            <div class="input-item-div">
+              <label for="cep">Qual é o Cep?</label>
+              <input (keyup)="cepMask()"  [mask]="maskCep" type="text" name="cep" placeholder="Digite o cep"
+              [(ngModel)]="fuelStation.cep" formControlName="cep">
+
+              <div class="input-item" *ngIf="!cep.pristine && cep.errors">
+                <div class="alert alert-danger" role="alert" *ngIf="cep.errors.required">
+                  Cep é obrigatório.
+                </div>
+                <div class="alert alert-danger" role="alert" *ngIf="cep.errors.minlength">
+                  Cep deve ter no mínimo 8 caracters.
+                </div>
+                <div class="alert alert-danger" role="alert" *ngIf="cep.errors.maxlength">
+                  Cep deve ter no máximo 8 caracters.
+                </div>
+               </div> 
+               <div class="alert alert-danger" role="alert" *ngIf="cepError">
+                {{ cepError }}
+              </div>
+            </div>
+
+            <div class="input-item-div">
+              <label for="time_to_open">Qual é o Horário de abertura?</label>
+              <input type="text" name="time_to_open" placeholder="Digite o horário de abertura"
+              [(ngModel)]="fuelStation.time_to_open" formControlName="time_to_open">
+
+              <div class="input-item" *ngIf="!time_to_open.pristine && time_to_open.errors">
+                 
+                <div class="alert alert-danger" role="alert" *ngIf="time_to_open.errors.required">
+                  Horário de abertura é obrigatório.
+                </div>
+               </div> 
+            </div>
+            <div class="input-item-div">
+              <label for="time_to_close">Qual é o Horário de fechamento?</label>
+              <input type="text" name="time_to_close" placeholder="Digite o horário de fechamento"
+              [(ngModel)]="fuelStation.time_to_close" formControlName="time_to_close">
+
+              <div class="input-item" *ngIf="!time_to_close.pristine && time_to_close.errors">
+                 
+                <div class="alert alert-danger" role="alert" *ngIf="time_to_close.errors.required">
+                  Horário de fechamento é obrigatório.
+                </div>
+               </div> 
+            </div>
+         
+            <div class="manage-buttons-div">
+                <button type="button" class="btn1" (click)="cancel()">
+                    < Voltar</button>
+                        <button [disabled]="formulario.valid" type="button" class="btn2" (click)="createFuelStation()">Cadastrar ></button>
+            </div>
+               <!-- <div>{{ formulario.value | json}}</div>
+            <div>{{ formulario.valid | json }}</div> -->
+         </form>
+        </section>
+    </div>
+ </body>

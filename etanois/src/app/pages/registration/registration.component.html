@@ -1,0 +1,114 @@
+<main *ngIf="!registrationDone">
+
+  <section class="text-section">
+    <h1>Olá, gerente!<br> É uma honra tê-lo aqui!<br> Vamos começar com o seu cadastro.</h1>
+    <h2>Credencie seu posto de combustível e tenha controle sobre seu negócio. O Etanóis possui diversos recursos que
+      facilitam o seu trabalho!</h2>
+    <span>Já é cadastrado? <a routerLink="/attendant">Vá para a Área do Frentista</a></span>
+  </section>
+
+  <section class="text-section right">
+    <form class="form-container" [formGroup]="registerGroup" (ngSubmit)="submitRegister($event)">
+
+
+      <label class="form-label" for="name">Qual o seu nome?</label>
+      <mat-form-field appearance="outline">
+        <input id="name" type="text" formControlName="name" matInput>
+        <mat-error *ngIf="name.invalid && (name.dirty || name.touched) && name.errors.required">
+          Nome é <strong>obrigatório</strong>
+        </mat-error>
+        <mat-error *ngIf="name.invalid && (name.dirty || name.touched) && name.errors.minlength">
+          Nome precisa ter no mínimo <strong>5 caracteres</strong>
+        </mat-error>
+        <mat-error *ngIf="name.invalid && (name.dirty || name.touched) && name.errors.maxlength">
+          Nome pode ter no máximo <strong>50 caracteres</strong>
+        </mat-error>
+      </mat-form-field>
+
+
+      <label class="form-label" for="username">Qual o seu apelido?</label>
+      <mat-form-field appearance="outline">
+        <input id="username" type="text" formControlName="username" matInput>
+        <mat-error *ngIf="username.invalid && (username.dirty || username.touched) && username.errors.required">
+          Apelido é <strong>obrigatório</strong>
+        </mat-error>
+        <mat-error *ngIf="username.invalid && (username.dirty || username.touched) && username.errors.minlength">
+          Apelido precisa ter no mínimo <strong>3 caracteres</strong>
+        </mat-error>
+        <mat-error *ngIf="username.invalid && (username.dirty || username.touched) && username.errors.maxlength">
+          Apelido pode ter no máximo <strong>30 caracteres</strong>
+        </mat-error>
+      </mat-form-field>
+
+
+      <label class="form-label" for="email">Qual o seu melhor e-mail?</label>
+      <mat-form-field appearance="outline">
+        <input id="email" type="text" formControlName="email" matInput>
+        <mat-error *ngIf="email.invalid && (email.dirty || email.touched) && email.errors.required">
+          Email é <strong>obrigatório</strong>
+        </mat-error>
+        <mat-error *ngIf="email.invalid && (email.dirty || email.touched) && email.errors.email">
+          Digite um email <strong>válido</strong>
+        </mat-error>
+      </mat-form-field>
+
+
+      <label class="form-label" for="cep">Qual o seu CEP?</label>
+      <mat-form-field appearance="outline">
+        <input id="cep" type="text" formControlName="cep" mask="00000-000" matInput>
+        <mat-error *ngIf="cep.invalid && (cep.dirty || cep.touched) && cep.errors.required">
+          CEP é <strong>obrigatório</strong>
+        </mat-error>
+        <mat-error *ngIf="cep.invalid && (cep.dirty || cep.touched) && cep.errors.minlength">
+          Digite um CEP <strong>válido</strong>
+        </mat-error>
+        <mat-error *ngIf="cep.invalid && (cep.dirty || cep.touched) && cep.errors.maxlength">
+          Digite um CEP <strong>válido</strong>
+        </mat-error>
+      </mat-form-field>
+
+
+      <label class="form-label" for="password">Defina uma senha de acesso</label>
+      <mat-form-field appearance="outline">
+        <input id="password" type="password" formControlName="password" matInput>
+        <mat-error *ngIf="password.invalid && (password.dirty || password.touched) && password.errors.required">
+          Senha é <strong>obrigatório</strong>
+        </mat-error>
+        <mat-error *ngIf="password.invalid && (password.dirty || password.touched) && password.errors.minlength">
+          Senha precisa ter no mínimo <strong>6 caracteres</strong>
+        </mat-error>
+        <mat-error *ngIf="password.invalid && (password.dirty || password.touched) && password.errors.maxlength">
+          Senha pode ter no máximo <strong>20 caracteres</strong>
+        </mat-error>
+      </mat-form-field>
+
+
+      <mat-card class="error-card" *ngIf="registerError">{{getErrorMessage()}}</mat-card>
+
+      <div class="login-buttons">
+        <button id="back-button" mat-flat-button routerLink="/" class="btn-back">
+          <div>
+            ← Voltar
+          </div>
+        </button>
+        <button id="login-button" type="submit" mat-flat-button>
+          <div>
+            Seguir →
+          </div>
+        </button>
+      </div>
+    </form>
+  </section>
+</main>
+
+<main *ngIf="registrationDone">
+  <div class="center-div">
+    <h1>Muito bem! <br>Acabamos de enviar um e-mail para você. <br>Aprove a sua conta para continuar.</h1>
+    <button routerLink="/attendant" class="btn-next">
+      <div class="btn-text">
+        Ir para a Área do Frentista
+      </div>
+    </button>
+    <span>Ainda não recebeu o e-mail? <a (click)="registration()">Clique aqui para enviarmos novamente!</a></span>
+  </div>
+</main>

@@ -1,0 +1,128 @@
+aside {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: start;
+  align-self: center;
+  height: 90%;
+  margin: 38px 0 0 55px;
+}
+
+aside nav ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-self: center;
+  height: 100%;
+  width: 96px;
+  background: #11205e;
+  border-radius: 20px;
+}
+
+aside nav ul li {
+  width: 100%;
+  text-align: center;
+  list-style-type: none;
+  padding: 10px 0;
+}
+
+aside nav ul li.active img {
+  filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+}
+
+aside nav ul li.active {
+  background: #fafafa;
+}
+
+main {
+  clear: right;
+  width: 100%;
+  max-width: 792px;
+  height: 75%;
+  margin: 0 0 0 15%;
+  box-shadow: 0px 0px 5px #cccccc;
+  border: 1px solid #cccccc;
+  border-radius: 20px;
+}
+
+main div.row {
+  display: flex;
+  justify-content: space-evenly;
+  align-self: center;
+}
+
+main h2 {
+  display: inline-block;
+  color: #ff951c;
+  font-size: 1.5rem;
+  margin: 17px 20px;
+  padding: 10px;
+}
+
+main button.new-btn {
+  display: inline-block;
+  background: #208009;
+  font-size: 1.5rem;
+  color: #fafafa;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 17px 20px;
+  font-family: Bagatela !important;
+}
+
+main .icons-btn {
+  display: flex;
+  justify-content: space-evenly;
+  align-self: center;
+}
+
+main button.edit-btn {
+  width: 30px;
+  height: 30px;
+  background: #ff951c;
+  border: none;
+  border-radius: 10px;
+}
+
+main button.remove-btn {
+  width: 30px;
+  height: 30px;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #990800;
+  background: #ff1c1c;
+  border: none;
+  border-radius: 10px;
+}
+
+main .table {
+  margin: auto;
+  width: 90%;
+}
+
+table {
+  width: 100%;
+  border: 1px solid #cccccc;
+}
+
+table thead {
+  width: 100%;
+  background: #213891;
+  color: #fafafa;
+  font-size: 1.5rem;
+}
+
+table thead th {
+  line-height: 2.5rem;
+  height: 50px;
+}
+
+table td {
+  font-size: 1rem;
+  font-weight: 800;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #cccccc;
+}

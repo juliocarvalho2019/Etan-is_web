@@ -1,0 +1,235 @@
+main {
+  width: 100%;
+  height: calc(100vh - 150px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+main .text-section {
+  width: 40%;
+  min-width: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  padding: 0 5%;
+}
+
+main .text-section.right {
+  align-items: flex-start;
+}
+
+main .text-section h1 {
+  width: 100%;
+  font-size: 3.25rem;
+  font-weight: 800;
+  line-height: 77px;
+  letter-spacing: -0.27px;
+  color: #11205e;
+}
+
+main .text-section h2 {
+  width: 100%;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 34px;
+  letter-spacing: -0.12px;
+  color: #11205e;
+  margin: 20px 0;
+}
+
+main .text-section span {
+  margin: 30px 55px;
+  font-size: 1.5rem;
+  color: #1a1a1a;
+  text-align: center;
+  font-weight: 700;
+}
+
+main .text-section span a {
+  width: 100%;
+  font-size: 1.5rem;
+  color: #ff951c;
+  text-decoration: none;
+}
+
+main .text-section .gas-station-div {
+  width: 100%;
+  background-color: #f5f5f5;
+  box-shadow: none;
+  text-align: left;
+}
+
+main .text-section .gas-station-div .title {
+  display: block;
+  color: #1a1a1a;
+  font-size: 2rem;
+  line-height: 44px;
+  margin: 0;
+}
+
+main .text-section .gas-station-div .address {
+  display: block;
+  color: #808080;
+  font-size: 1.5rem;
+  line-height: 34px;
+  margin: 0;
+}
+
+main .text-section .register-buttons {
+  width: 100%;
+  margin: 20px 0;
+}
+
+main .text-section .register-buttons button#login-button {
+  font-size: 1.5rem;
+  text-decoration: none;
+  width: 100%;
+  padding: 10px;
+  background-color: #ff951c;
+  color: #fafafa;
+  border-radius: 10px;
+}
+
+main .form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+main .form-container .login-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  text-align: center;
+  margin: 20px 0;
+}
+
+main .form-container .login-buttons button#back-button {
+  font-size: 1.5rem;
+  background-color: transparent;
+  color: #11205e;
+}
+
+main .form-container .login-buttons button#login-button {
+  font-size: 1.5rem;
+  text-decoration: none;
+  min-width: 200px;
+  padding: 10px;
+  background-color: #ff951c;
+  color: #fafafa;
+  border-radius: 10px;
+}
+
+main .form-container .error-card {
+  font-size: 1rem;
+  color: #f44336;
+  background-color: transparent;
+  box-shadow: none;
+  margin: 5px;
+}
+
+.center-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.center-div h1 {
+  margin: 30px 55px;
+  font-size: 3.375rem;
+  color: #11205e;
+  text-align: center;
+  line-height: 77px;
+  font-weight: 800;
+}
+
+.center-div h2 {
+  margin: 30px 55px;
+  font-size: 3.375rem;
+  color: #ff951c;
+  text-align: center;
+  line-height: 77px;
+  font-weight: 800;
+}
+
+.center-div span {
+  margin: 30px 55px;
+  font-size: 1.5rem;
+  color: #1a1a1a;
+  text-align: center;
+  font-weight: 700;
+}
+
+.center-div span a {
+  width: 100%;
+  font-size: 1.5rem;
+  color: #ff951c;
+  margin: 30px 0 30px 55px;
+  text-decoration: none;
+}
+
+.center-div .btn-next {
+  font-size: 1.5rem;
+  width: 60%;
+  height: 60px;
+  color: #fafafa;
+  background-color: #ff951c;
+  border: none;
+  border-radius: 10px;
+}
+
+@media (max-width: 1000px) {
+  main {
+    height: calc(100vh - 250px);
+  }
+
+  main .text-section {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  main .text-section {
+    min-width: 360px;
+  }
+
+  main .text-section h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 55px;
+    letter-spacing: -0.27px;
+  }
+
+  main .text-section h2 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 26px;
+    letter-spacing: -0.12px;
+  }
+
+  .center-div h1 {
+    font-size: 2.5rem;
+    line-height: 33px;
+  }
+
+  main .text-section span {
+    font-size: 1rem;
+  }
+
+  main .text-section span a {
+    display: block;
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  main .text-section .btn-next {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,37 @@
+<mat-card class="home mat-elevation-z3" layout="row" layout-align="center center">
+    <mat-card-title class="title" layout="row" layout-align="center center">
+        Apagar Combustível
+    </mat-card-title>
+    <br>
+    <mat-card-subtitle class="subtitle">
+        Tem certeza que deseja apagar o combustível selecionado?
+        <!-- <div class="div1">
+            <label>Combustível</label>
+            <div>
+                <select class="input" [(ngModel)]="fuel.name">
+                    <option [ngValue]="fuel.name">Selecione o Combustível</option>
+                    <option value="1">Gasolina Comum</option>
+                    <option value="2">Gasolina Aditivada</option>
+                    <option value="3">Etanol</option>
+                </select>
+            </div>
+        </div>
+   <div class="div2">
+    <label>Preço</label>
+    <div>
+        <!-- <label>R$</label> -->
+        <!-- <input class="input2" placeholder="Preço (R$)" [(ngModel)]="fuel.price" type ="text" name="price" id="price">
+    </div> -->
+   <!-- </div> --> 
+    </mat-card-subtitle>
+    <br>
+    <br>
+    <mat-card-actions  class="manage-buttons-div">
+        <button mat-flat-button (click)="deleteFuel()">Sim!</button>
+        <button mat-flat-button (click)="cancel()">Cancelar</button>
+    </mat-card-actions>
+</mat-card>
+
+
+
+

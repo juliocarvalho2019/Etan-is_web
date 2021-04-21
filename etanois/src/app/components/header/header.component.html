@@ -1,0 +1,92 @@
+<mat-toolbar *ngIf="!user" class="toolbar-container">
+  <div class="logo-div">
+    <img src="../../../assets/images/logo.png" routerLink="/">
+  </div>
+  <nav>
+    <a routerLinkActive="active" routerLink="/goals">Nosso Objetivo</a>
+    <a routerLinkActive="active" routerLink="/attendant">Área do Frentista</a>
+    <button class="registration-btn" mat-flat-button routerLinkActive="active" routerLink="/registration">
+      Quero meu posto no Etanóis
+    </button>
+  </nav>
+</mat-toolbar>
+
+<mat-toolbar *ngIf="user" class="toolbar-container">
+  <div class="gas-title-div">
+    Área do Frentista {{currentGasStation ? '| '+ currentGasStation.name : ''}}
+  </div>
+  <div class="icons-div">
+    <div>
+      <button mat-icon-button [matMenuTriggerFor]="notificationsMenu" aria-label="Menu de notificações">
+        <mat-icon>notifications_none</mat-icon>
+      </button>
+      <mat-menu #notificationsMenu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>notifications_active</mat-icon>
+          <span>Ativar notificações</span>
+        </button>
+      </mat-menu>
+    </div>
+    <div>
+      <button mat-icon-button [matMenuTriggerFor]="accountMenu" aria-label="Menu do perfil do usuário">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+      <mat-menu #accountMenu="matMenu">
+        <button (click)="editUser()" mat-menu-item>
+          <mat-icon>edit</mat-icon>
+          <span>Editar Perfil</span>
+        </button>
+        <button (click)="editPassword()" mat-menu-item>
+          <mat-icon>edit</mat-icon>
+          <span>Editar Senha</span>
+        </button>
+        <button (click)="deleteUser()" mat-menu-item>
+          <mat-icon>delete</mat-icon>
+          <span>Remover Perfil</span>
+        </button>
+        <button (click)="logout()" mat-menu-item>
+          <mat-icon>login</mat-icon>
+          <span>Sair</span>
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+</mat-toolbar>
+
+<!-- <header class="normal-header" *ngIf="!user">
+  <div class="logo-div">
+    <img src="../../../assets/images/logo.png" routerLink="/">
+  </div>
+  <nav>
+    <ul>
+      <li>
+        <a routerLinkActive="active" routerLink="/goals">Nosso Objetivo</a>
+      </li>
+      <li>
+        <a routerLinkActive="active" routerLink="/attendant">Área do Frentista</a>
+      </li>
+      <li>
+        <a class="registration-btn" routerLinkActive="active" routerLink="/registration">Quero meu posto no Etanóis</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<header class="user-header" *ngIf="user">
+  <h1>
+    Nome do Posto
+  </h1>
+  <div class="icons-row">
+    <a>
+      <img src="../../../assets/images/bell.png">
+    </a>
+    <a (click)="openSubMenu()">
+      <img src="../../../assets/images/account.png">
+    </a>
+    <div *ngIf="subMenu" class="submenu">
+      <button>Editar perfil</button>
+      <button>Excluir perfil</button>
+      <button (click)="logout()">Logout</button>
+    </div>
+  </div>
+</header> -->

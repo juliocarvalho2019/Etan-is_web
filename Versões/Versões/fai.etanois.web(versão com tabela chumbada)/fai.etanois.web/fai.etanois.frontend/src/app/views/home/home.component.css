@@ -1,0 +1,117 @@
+body {
+    height: calc(100vh - 214px);
+    width: 100%;
+    background-color: #fafafa; /* Adicionado cor no background*/
+    font-family: bagatela, serif;
+}
+
+.home-container {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: start;
+    padding: 0 45px;
+}
+
+.home-info-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.app-h1 {
+    font-family: bagatela, serif;
+    height: 100%;
+    text-align: left;
+    font-size: 54px;
+    font-weight: 800;
+    letter-spacing: -0.27px;
+    line-height: 77px;
+    color: #11205e;
+}
+
+.app-h2 {
+    font-family: bagatela, serif;
+    height: 100%;
+    padding-right: 50px;
+    text-align: left;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: -0.12px;
+    line-height: normal;
+    color: #11205e;
+}
+
+.download-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.download-buttons button {
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-family: bagatela, serif;
+    text-align: left;
+    height: 100px;
+    width: 250px;
+    color: #1a1a1a;
+    background-color: #f5f5f5;
+    padding: 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 20px;
+}
+
+.download-buttons button:focus {
+    border: 1px solid #1a1a1a;
+}
+
+.download-buttons button img {
+    height: 32px;
+}
+
+.download-buttons button p {
+    line-height: 25px;
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+}
+
+.download-buttons button p:first-child {
+    font-size: 16px;
+}
+
+.download-buttons button p:last-child {
+    font-size: 32px;
+}
+
+.home-images {
+    position: relative;
+    margin: 0 auto;
+    height: 551px;
+    width: 500px;
+}
+
+.home-images img {
+    position: absolute;
+    height: 450px;
+    width: 208px;
+}
+
+.home-images .image-1 {
+    top: 72px;
+    left: 0;
+}
+
+.home-images .image-2 {
+    bottom: 101px;
+    left: 137px;
+}
+
+.home-images .image-3 {
+    top: 101px;
+    left: 292px;
+}

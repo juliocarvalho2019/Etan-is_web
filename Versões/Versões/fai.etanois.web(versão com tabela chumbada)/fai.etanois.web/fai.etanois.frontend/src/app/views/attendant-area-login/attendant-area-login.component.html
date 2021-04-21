@@ -1,0 +1,51 @@
+<body>
+    <div class="manage-container">
+        <section class="manage-info-section">
+            <h1 class="manage-h1">Olá!
+                <br>
+                Coloque suas credenciais 
+                <br>
+                ao lado e acompanhe seu 
+                <br>
+                posto de combustível.</h1>
+                <br>
+                <p class="manage-h2">Gerencie seu posto de combustível e veja seus 
+                <br>
+                resultados com poucos cliques!
+                </p>
+                <br>
+                <p class="manage-p-bold">Ainda não é cadastrado?</p>
+                <a class="attendant-link" href="user/create" > Clique aqui!</a>
+        </section> 
+
+        <section class="manage-input-section">
+            <form [formGroup]="formularioDeUsuario" (ngSubmit)="enviarDados()">
+                  <div class="input-item-div">
+                        <label>Usuário</label>
+                        <input type="text" id="imputEmail" formControlName="email" class="form-control" name="email" placeholder="Digite seu usuário"
+                        [(ngModel)]='login.email' required>
+                  </div>
+                  <div class="input-item-div">
+                        <label>Senha de acesso</label>
+                        <input type="password" name="senha" placeholder="Digite sua senha" formControlName="password"
+                        [(ngModel)]='login.password' required> 
+                 </div>
+                 <div class="alert alert-danger" role="alert" *ngIf="loginError">
+                    {{ loginError }}
+                 </div> 
+                 <div class="manage-buttons-div">
+                    <button type="button" class="btn1" (click)="cancel()">
+                         < Voltar</button>
+                             <button type="button" class="btn2" (click)="actionLogin()" [disabled]="!formularioDeUsuario.valid">Seguir ></button>
+                        
+                 </div>
+                 <div class="col-lg-12" style="text-align: right;">
+                     <a class="btn btn-link" href="Forgot/Password">Esqueceu sua senha?</a>
+                 </div>
+            </form>
+        </section>   
+    </div>
+</body>
+
+
+
